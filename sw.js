@@ -1,15 +1,15 @@
-/* Protéines Barialimites · Service Worker · Build 5 */
+/* Protéines Barialimites · Service Worker · Build 8 */
 "use strict";
 
-var CACHE_NAME = "proteines-barialimites-v5";
+var CACHE_NAME = "proteines-barialimites-v8";
 /* Coquille minimale : les icônes sont mises en cache à la volée si présentes,
    pour ne pas faire échouer l'installation si elles ne sont pas encore déposées. */
-var APP_SHELL = ["./", "./index.html", "./manifest.json"];
+var APP_SHELL = ["./index.html", "./manifest.json"];
 
 self.addEventListener("install", function(event){
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache){
-      return cache.addAll(APP_SHELL);
+      return Promise.all(APP_SHELL.map(function(u){ return cache.add(u).catch(function(){}); }));
     }).then(function(){ return self.skipWaiting(); })
   );
 });
