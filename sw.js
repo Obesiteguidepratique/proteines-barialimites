@@ -1,7 +1,7 @@
-/* Protéines Barialimites · Service Worker · Build 12 */
+/* Protéines Barialimites · Service Worker · Build 14 */
 "use strict";
 
-var CACHE_NAME = "proteines-barialimites-v12";
+var CACHE_NAME = "proteines-barialimites-v14";
 /* Coquille minimale : les icônes sont mises en cache à la volée si présentes,
    pour ne pas faire échouer l'installation si elles ne sont pas encore déposées. */
 var APP_SHELL = ["./index.html", "./manifest.json"];

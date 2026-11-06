@@ -440,7 +440,7 @@
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="dtitle">
     <span class="mtag">À lire avant de commencer</span>
     <h2 id="dtitle">Un outil d'orientation, pas un diagnostic</h2>
-    <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;color:var(--vert);margin-bottom:10px">Protéines Barialimites · Build 12</div>
+    <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;color:var(--vert);margin-bottom:10px">Protéines Barialimites · Build 14</div>
     <p>Cet outil vous aide à <strong>suivre vos apports en protéines</strong> au fil de vos repas après chirurgie bariatrique. Il ne pose aucun diagnostic et ne remplace pas votre équipe soignante.</p>
     <p>Les repères affichés sont des <strong>ordres de grandeur</strong> et reflètent une incertitude réelle. Seule votre équipe de soins peut fixer votre objectif de protéines et adapter votre suivi.</p>
     <p><strong>En cas de malaise sévère, perte de connaissance ou confusion : demandez conseil à votre équipe de soins ou appelez le 15 (ou le 112).</strong></p>
@@ -527,12 +527,6 @@
 
     <div class="guide-tab-content" id="gc-config">
       <div class="card">
-        <div class="step-eyebrow"><span class="step-num">🎛️</span><h2>Personnalisation</h2></div>
-        <div class="field-label">Cible de protéines (g par kg de poids et par jour)</div>
-        <input class="jselect" id="cfg-prot" inputmode="decimal" placeholder="0,83" style="width:auto">
-        <p class="hint" style="margin-top:6px">Valeur par défaut : 0,83 g/kg/jour. Recommandation de cible par votre équipe.</p>
-      </div>
-      <div class="card">
         <div class="step-eyebrow"><span class="step-num">🎛️</span><h2>Options</h2></div>
         <div class="field-label">Griser les aliments faiblement protéinés</div>
         <p class="hint">Dans la liste de recherche, les aliments dont la teneur en protéines est faible apparaissent grisés. Ils restent sélectionnables.</p>
@@ -603,6 +597,8 @@
         <div class="step-eyebrow"><span class="step-num">📋</span><h2>Versions</h2></div>
         <p class="hint">Historique :</p>
         <ul class="clean">
+          <li><strong>Build 14</strong> — Le champ « Note (facultatif) » se place juste avant « Enregistrer vos repas ». Les boutons Exporter, Importer et Vider le journal sont aussi disponibles dans « Besoins journaliers », sous la tendance des 7 derniers jours.</li>
+          <li><strong>Build 13</strong> — Le tableau « Protéines des repas » est supprimé. Le champ « Note (facultatif) » passe sous la date : ce sont les notes de la journée. La cible de protéines (g par kg et par jour) quitte l'aide (Configuration) et se règle dans l'onglet Supplémentation, au-dessus de la dose.</li>
           <li><strong>Build 12</strong> — Le raccourci * est rappelé dans « Besoins journaliers » et dans le Guide d'utilisation de l'aide.</li>
           <li><strong>Build 11</strong> — Protéines en poudre : la scène affiche des dosettes. Chaque pression sur + ajoute une dosette (de la taille réglée dans l'onglet Supplémentation), jusqu'au nombre de doses qu'il vous a manqué dans la journée. Raccourci : tapez * dans la recherche pour afficher « Protéines en poudre post-bariatrique ».</li>
           <li><strong>Build 10</strong> — Nouveau jeu d'images « tas neutre » : il s'applique à tous les aliments qui n'ont pas encore leur propre jeu (viandes et poissons, légumes). « Besoins journaliers » : le total du jour s'exprime en pourcentage du niveau suffisant journalier, à plus ou moins 10 points.</li>
@@ -726,16 +722,13 @@
           <button type="button" class="btn btn-outline" id="btnAddDrink">🥤 Boisson</button>
         </div>
         <div id="mealList" class="meal-list"></div>
-        <div class="field-label" style="margin-top:14px">Protéines des repas</div>
-        <table id="synthTable" class="synth-table grise">
-          <thead><tr><th>Apport</th><th>Quantité</th></tr></thead>
-          <tbody id="synthBody"></tbody>
-        </table>
-        <div class="field-label">Note (facultatif)</div>
-        <input class="jinput" id="j-note" placeholder="Contexte à partager avec votre équipe">
       </div>
     </div>
     <div id="protMain" class="prot-main"></div>
+    <div class="card" style="margin-top:10px">
+      <div class="field-label">Note (facultatif)</div>
+      <input class="jinput" id="j-note" placeholder="Notes de la journée, à partager avec votre équipe">
+    </div>
     <button type="button" class="btn btn-primary" id="jSave" style="width:100%;padding:14px;margin-top:4px">Enregistrer vos repas</button>
     <div id="jSaveMsg" class="save-banner" hidden>✅ <strong>Repas enregistré.</strong></div>
   </section>
@@ -762,6 +755,11 @@
 
   <!-- ONGLET PROTEINES -->
   <section class="panel" id="p-supplementation" role="tabpanel" hidden>
+    <div class="card">
+      <div class="field-label">Cible de protéines (g par kg de poids et par jour)</div>
+      <input class="jselect" id="cfg-prot" inputmode="decimal" placeholder="0,83" style="width:auto">
+      <p class="hint" style="margin-top:6px">Valeur par défaut : 0,83 g/kg/jour. Recommandation de cible par votre équipe.</p>
+    </div>
     <div class="card">
       <div class="step-eyebrow"><span class="step-num">🥄</span><h2>Ma dose de protéines en poudre</h2></div>
       <p class="hint">Cette valeur sert à exprimer en doses ce qui vous manque pour atteindre le niveau suffisant journalier (onglet « Besoins journaliers »).</p>
@@ -802,6 +800,9 @@
       <div id="protToday" class="prot-today"></div>
       <div class="block-title" style="margin-top:16px">Tendance des 7 derniers jours</div>
       <div id="protChart"></div>
+      <button type="button" class="btn jdb-full jdb-wine" id="pExport">📧 Exporter le journal pour votre équipe de soins</button>
+      <button type="button" class="btn jdb-full jdb-bord-vert" id="pImport">📥 Importer un journal au format CSV</button>
+      <button type="button" class="btn jdb-full jdb-wine" id="pClear">🗑 Vider le journal de bord</button>
       <p class="hint" style="margin-top:14px;font-style:italic">Ce suivi additionne les protéines des repas que vous enregistrez dans le journal. Il ne compte que les prises dont la teneur en protéines est connue.</p>
     </div>
   </section>
@@ -986,6 +987,9 @@ function initJournal(){
   });
   document.getElementById("jImport").addEventListener("click", importCSV);
   document.getElementById("jClear").addEventListener("click", clearJournal);
+  document.getElementById("pExport").addEventListener("click", exportCSV);
+  document.getElementById("pImport").addEventListener("click", importCSV);
+  document.getElementById("pClear").addEventListener("click", clearJournal);
   document.getElementById("jdbClose").addEventListener("click", function(){ document.getElementById("jdbModal").hidden = true; });
   var stored = Store.get(JKEY);
   journal = Array.isArray(stored) ? stored : [];
@@ -1097,7 +1101,7 @@ function deleteEpisode(id){
 
 function updateJournalButtons(){
   var vide = (journal.length === 0);
-  ["jExport","jClear"].forEach(function(id){
+  ["jExport","jClear","pExport","pClear"].forEach(function(id){
     var b = document.getElementById(id);
     if(b){ b.disabled = vide; }
   });
@@ -1618,7 +1622,7 @@ function clearJournal(){
   if(!confirm("Vider définitivement le journal de bord ? Cette action est irréversible.")){ return; }
   journal = [];
   Store.set(JKEY, journal);
-  renderJournal();
+  renderJournal(); renderProteines();
 }
 
 function splitCSVLine(line){
@@ -1684,7 +1688,7 @@ function parseCSVImport(text){
     added++;
   }
   Store.set(JKEY, journal);
-  renderJournal();
+  renderJournal(); renderProteines();
   alert(added + " épisode(s) importé(s).");
 }
 
@@ -11973,13 +11977,6 @@ function renderProtMain(){
     "<div class=\"rp-note\">Estimation indicative, sans valeur m\u00e9dicale. \u00c0 discuter avec votre \u00e9quipe de soins.</div></div>";
 }
 function renderSynth(){
-  var table = document.getElementById("synthTable");
-  var body = document.getElementById("synthBody");
-  var empty = (mealEntries.length === 0);
-  table.className = "synth-table" + (empty ? " grise" : "");
-  var t = empty ? emptyNut() : mealTotal();
-  var val = (t.prot === null || t.prot === undefined) ? "—" : frNum(t.prot, 1) + " g";
-  body.innerHTML = "<tr><td>Protéines</td><td>" + val + "</td></tr>";
   renderProtMain();
 }
 
@@ -12065,7 +12062,7 @@ function stopScan(){
 }
 
 /* ===== Avertissement : ne plus réafficher (jusqu'à la prochaine version) ===== */
-var APP_VERSION = "12";
+var APP_VERSION = "14";
 var SEEN_KEY = "proteines_barialimites_seen_version";
 
 function renderSlotsEdit(){
