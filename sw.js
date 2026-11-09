@@ -1,7 +1,7 @@
-/* Protéines Barialimites · Service Worker · Build 14 */
+/* Protéines Barialimites · Service Worker · Build 32 */
 "use strict";
 
-var CACHE_NAME = "proteines-barialimites-v14";
+var CACHE_NAME = "proteines-barialimites-v32";
 /* Coquille minimale : les icônes sont mises en cache à la volée si présentes,
    pour ne pas faire échouer l'installation si elles ne sont pas encore déposées. */
 var APP_SHELL = ["./index.html", "./manifest.json"];
@@ -32,6 +32,17 @@ self.addEventListener("fetch", function(event){
 
   /* Requêtes externes (Open Food Facts, CDN du scanner) : réseau, sans cache. */
   if(url.origin !== self.location.origin){ return; }
+
+  /* Nouveautés (News.json, rédigé par l'éditeur) : réseau d'abord, cache en secours hors ligne. */
+  if(url.pathname.slice(-9) === "News.json"){
+    event.respondWith(
+      fetch(req).then(function(res){
+        if(res && res.status === 200){ var cp = res.clone(); caches.open(CACHE_NAME).then(function(c){ c.put(req, cp); }); }
+        return res;
+      }).catch(function(){ return caches.match(req); })
+    );
+    return;
+  }
 
   /* Coquille de l'app : cache d'abord, réseau en secours. */
   event.respondWith(

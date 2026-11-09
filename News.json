@@ -1,0 +1,24 @@
+{
+ "news": [
+  {
+   "date": "09/11/2026",
+   "contenu": "**Formation, module 2.** Un second test vous propose d'estimer la quantité de protéines de trois aliments posés sur une même image. Vous le trouvez dans l'onglet Formation."
+  },
+  {
+   "date": "09/11/2026",
+   "contenu": "**Bibliothèque de repas.** Dans « Mes repas », le bouton Bibliothèque de repas propose des exemples sans quantités, et vous permet d'enregistrer vos propres repas, avec ou sans les quantités, pour les reprendre en quelques touches. L'onglet s'appelle désormais « Mes prises alimentaires » : vous pouvez noter seulement les protéines ou vos repas complets."
+  },
+  {
+   "date": "08/11/2026",
+   "contenu": "**Statistiques d'usage anonymes.** Pour mieux connaître l'usage de l'application, un comptage anonyme est maintenant actif : jamais vos repas, ni votre poids, ni vos notes. Vous pouvez le désactiver dans Aide, onglet Configuration, Confidentialité."
+  },
+  {
+   "date": "07/11/2026",
+   "contenu": "**Une fiche par jour.** Dans « Mes repas », enregistrer garde tout à l'écran pendant la journée en cours. Pour une autre date (même à venir, pour préparer vos repas du lendemain), l'écran revient ensuite à aujourd'hui. Changer la date ouvre la fiche de ce jour-là. Dans l'historique, touchez une fiche pour l'ouvrir."
+  },
+  {
+   "date": "07/11/2026",
+   "contenu": "**🎓 Formation, premier onglet.** Estimez vos repères sur les protéines par aliment, avec de petites illustrations. L'application s'ouvre dessus tant qu'un repère reste faux."
+  }
+ ]
+}

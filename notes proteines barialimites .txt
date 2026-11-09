@@ -1,0 +1,32 @@
+Prompts pour ChatGPT
+
+Catégories proposées (6 jeux, chacun avec 9 portions) :
+
+- Viandes et poissons cuits (fait)
+- Œufs (œuf brouillé ou omelette en morceaux)
+- Féculents cuits (riz, pâtes, semoule)
+ Viandes rouges cuits
+
+- Légumes cuits
+- Fromages et laitages solides (cubes)
+- Tas neutre (pour tout le reste)
+
+Prompt maître (remplacez [CATÉGORIE]) :
+
+Image sur fond vert uni #00FF00, PNG. 9 portions de [CATÉGORIE] en tas, alignées en une seule rangée, à l'échelle exacte entre elles : 5, 10, 25, 50, 75, 100, 125, 150 et 200 g. La portion de 5 g est une cuillère à café posée à la verticale, avec un seul morceau dedans. Chaque morceau a EXACTEMENT la même taille et la même forme dans tous les tas : seul le nombre de morceaux change. Aliment cuit, appétissant, éclairage identique pour tous les tas, ombre portée douce sous chaque tas. Aucun texte, aucune étiquette, aucun chiffre. Chaque tas bien séparé des autres, sans chevauchement. Vue légèrement en plongée, tous les tas posés sur la même ligne de base.
+
+Image sur fond vert uni #00FF00 parfaitement uniforme, format PNG large, sans dégradé. Une cuillère à café en métal, puis huit tas de [ALIMENT] alignés de gauche à droite, du plus petit au plus grand, avec un grand espace vide entre chaque élément (aucun contact, aucun chevauchement). Dans la cuillère : environ 5 g. Les huit tas correspondent à 10, 25, 50, 75, 100, 125, 150 et 200 g. Exactement 9 éléments au total (la cuillère + 8 tas), pas un de plus. Photo réaliste, éclairage doux et neutre. Contours nets. Aucun reflet ni teinte verte sur l’aliment. Aucune ombre portée verte. Ombre de contact minimale sous chaque tas. Aucun grain, miette ou morceau isolé en dehors des tas. Aucun texte, aucune assiette, aucun autre objet.
+
+https://obesiteguidepratique.github.io/proteines-barialimites/index.html
+
+
+
+python -m http.server 8000
+
+http://localhost:8000/Carte_Obesite_editor.html
+
+
+
+3 256228 433763
+3 392460 460409
+8 076809 512268
